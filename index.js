@@ -1,12 +1,13 @@
 const puppeteer = require("puppeteer-extra");
 const RecaptchaPlugin = require("puppeteer-extra-plugin-recaptcha");
 const https = require("https");
+require("dotenv").config();
 
 puppeteer.use(
   RecaptchaPlugin({
     provider: {
       id: "2captcha",
-      token: "30a5a2befdafc9b87ffe06d90b1c7219",
+      token: process.env.CAPTCHA_KEY,
     },
     visualFeedback: true,
   })
